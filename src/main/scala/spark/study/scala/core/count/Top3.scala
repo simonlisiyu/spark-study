@@ -14,7 +14,7 @@ object Top3 {
         .setMaster("local")  
     val sc = new SparkContext(conf)
     
-    val lines = sc.textFile("C://Users//Administrator//Desktop//top.txt", 1)
+    val lines = sc.textFile("/home/softwares/spark-env-dir/hadoop-2.6.0-cdh5.4.2/top.txt", 1)
     val pairs = lines.map { line => (line.toInt, line) }
     val sortedPairs = pairs.sortByKey(false)
     val sortedNumbers = sortedPairs.map(sortedPair => sortedPair._1)  
